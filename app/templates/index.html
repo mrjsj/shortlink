@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h3>Create short url</h3>
+    <form action="/" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="url" name="url" placeholder="Url" type="text" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Full Link</th>
+            <th>Short Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in data %}
+        <tr>
+            <td>
+                {{ row.link }}
+            </td>
+            <td>
+                {{ baseurl }}{{ row.shortlink }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
